@@ -6,24 +6,48 @@
 
 \begin{document}
 \begin{problemDescription}
-\lipsum[1-3]
+  Alicia y Bob están jugando un juego muy particular en un calendario de un mes de 30 días.
+
+  El juego consiste en lo siguiente, comenzando en la fecha $x$ del mes:
+  \begin{enumerate}
+    \item Si el día actual está tachado, terminan de jugar.
+    \item Alicia y Bob tachan el día actual $x$.
+    \item Si el día actual ($x$) corresponde a:
+    \begin{itemize}
+      \item[Lunes:] El siguiente día será el primer día de fin de semana (sábado o domingo) que no esté tachado del mes.
+      \item[Martes:] El día siguiente será $2 \cdot x$, dando la vuelta al final del calendario si $2x>30$. Por ejemplo, si $x = 14$ el siguiente día será el $28$. Si $x = 16$ el siguiente día será el $2$, pues $2x = 32$.
+      \item[Miércoles:] El siguiente día será $\left\lceil\frac{x}{2}\right\rceil$, es decir, dividimos en dos y redondeamos \textbf{hacia arriba}.
+      \item[Jueves:]  El siguiente día será el reflejo del día actual con respecto al centro del mes. Por ejemplo:
+      \begin{itemize}
+        \item Si $x=1$, el siguiente día será $30$.
+        \item Si $x=2$, el siguiente día será $29$.
+        \item Si $x=15$, el siguiente día será $16$.
+        \item Si $x=30$, el siguiente día será $1$.
+      \end{itemize}
+      \item[Viernes:] Si $x$ es par, retroceden un día. Si no, avanzan un día.
+      \item[Sábado:] Avanzan al primer día que no esté tachado. Esto es, avanzan de uno en uno hasta encontrar un día que no esté tachado, dando la vuelta al calendario si es que avanzan desde día $30$. Si todos los días están tachados, el juego termina.
+      \item[Domingo:] Retroceden al primer día que no esté tachado. Esto es, retroceden de uno en uno hasta encontrar un día que no esté tachado, dando la vuelta al calendario si es que retroceden desde el día $1$. Si todos los días están tachados, el juego termina.
+    \end{itemize}
+  \end{enumerate}
 \end{problemDescription}
 
 \begin{inputDescription}
-\lipsum[1]
+  La primera y única línea de la entrada contiene dos números enteros separados por espacios:
+  \begin{itemize}
+    \item $d$ ($1 \leq d \leq 7$) indicando a qué día corresponde el primer día del mes. Si $d$ es $1$, el mes comienza un lunes, si es $2$ un martes y así hasta domingo.
+    \item $x$ ($1 \leq x \leq 30$) indicando el día inicial del juego.
+  \end{itemize}
 \end{inputDescription}
 
 \begin{outputDescription}
-\lipsum[1]
+  Debes imprimir un solo número entero indicando el día del mes en el que terminan el juego.
 \end{outputDescription}
 
 \begin{scoreDescription}
-  \subtask{20}
-  Descripción Subtarea1
-  \subtask{30}
-  Descripción Subtarea2
-  \subtask{50}
-  Descripción Subtarea3
+  \subtask{40}
+  $d = 1$j
+  \subtask{60}
+  $1 \leq d \leq 7$
 \end{scoreDescription}
 
 \begin{sampleDescription}
