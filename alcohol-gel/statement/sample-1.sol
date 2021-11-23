@@ -1,1 +1,1 @@
-<sample output data here>
+2 2 19

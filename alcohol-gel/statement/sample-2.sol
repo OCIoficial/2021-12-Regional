@@ -1,1 +1,1 @@
-<sample output data here>
+3 5 19
