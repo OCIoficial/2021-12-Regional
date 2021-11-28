@@ -1,14 +1,61 @@
+# gen_random.py M N MAX_HEIGHT
+# ramp.py M N [asc|desc]
+# spiral.py M N cy cx
+
 [Subtask 1]
-  random ; gen_random.py 1 rand rand
-  random ; gen_random.py 1 rand rand
-  random ; gen_random.py 1 rand rand
-  random ; gen_random.py 1 rand rand
+
+  rand_small_dense  ; gen_random.py 1 10 20
+  rand_small_dense  ; gen_random.py 1 20 20
+  rand_small_sparse ; gen_random.py 1 10 1000000000
+  rand_small_sparse ; gen_random.py 1 20 1000000000
+
+  rand_big_dense    ; gen_random.py 1 500  10
+  rand_big_dense    ; gen_random.py 1 1000 100
+  rand_big_sparse   ; gen_random.py 1 500  1000000000
+  rand_big_sparse   ; gen_random.py 1 1000 1000000000
+
+  rand              ; gen_random.py 1 rand rand
+  rand              ; gen_random.py 1 rand rand
+  rand              ; gen_random.py 1 rand rand
+  rand              ; gen_random.py 1 rand rand
+
+  sorted_asc_small  ; ramp.py 1 10   asc
+  sorced_asc_med    ; ramp.py 1 100  asc
+  sorted_asc_big    ; ramp.py 1 1000 asc
+
+  sorted_desc_small ; ramp.py 1 10   desc
+  sorted_desc_med   ; ramp.py 1 100  desc
+  sorted_desc_big   ; ramp.py 1 1000 desc
+
+  spiral_small      ; spiral.py 1 10   0 5
+  spiral_big        ; spiral.py 1 1000 0 500
 
 [Subtask 2]
-  random ; gen_random.py rand rand rand
-  random ; gen_random.py rand rand rand
-  random ; gen_random.py rand rand rand
-  random ; gen_random.py rand rand rand
-  spiral ; spiral.py rand rand rand rand
-  ramp   ; ramp.py rand rand asc
-  ramp   ; ramp.py rand rand desc
+  rand_small_dense  ; gen_random.py 20 32 40
+  rand_small_dense  ; gen_random.py 50 10 30
+  rand_small_sparse ; gen_random.py 12 23 1000000000
+  rand_small_sparse ; gen_random.py 40 25 1000000000
+
+  rand_big_dense    ; gen_random.py 800 1000 10
+  rand_big_dense    ; gen_random.py 999 778  40
+  rand_big_sparse   ; gen_random.py 980 1000 1000000000
+  rand_big_sparse   ; gen_random.py 953 934  1000000000
+
+  rand              ; gen_random.py rand rand rand
+  rand              ; gen_random.py rand rand rand
+  rand              ; gen_random.py rand rand rand
+  rand              ; gen_random.py rand rand rand
+
+  ramp_asc_small    ; ramp.py 25   33    asc
+  ramp_asc_med      ; ramp.py 101  202   asc
+  ramp_asc_big      ; ramp.py 1000 1000  asc
+
+  ramp_desc_small   ; ramp.py 23   34    desc
+  ramp_desc_med     ; ramp.py 201  152   desc
+  ramp_desc_big     ; ramp.py 998  971  desc
+
+  spiral_small_center ; spiral.py 10 20 5 10
+  spiral_small_rand   ; spiral.py 10 20 rand rand
+
+  spiral_big_center   ; spiral.py 1000 1000 500  500
+  spiral_big_rand     ; spiral.py 890  998  rand rand
