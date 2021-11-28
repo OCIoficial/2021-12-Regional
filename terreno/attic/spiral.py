@@ -10,25 +10,10 @@ def read_arg(arg, min_value, max_value):
 
 
 def spiral_iter(iters):
-    yield (0, 0)
-    yield (0, -1)
-    yield (-1, -1)
-
-    (x, y) = (-1, -1)
+    yield (x := 0, y := 0)
     for i in range(iters):
-        step = i // 2 + 2
-        if i % 4 == 0:
-            (dx, dy) = (0, 1)
-        if i % 4 == 1:
-            (dx, dy) = (1, 0)
-        if i % 4 == 2:
-            (dx, dy) = (0, -1)
-        if i % 4 == 3:
-            (dx, dy) = (-1, 0)
-        for _ in range(step):
-            x += dx
-            y += dy
-            yield (x, y)
+        (dx, dy) = [(0, -1), (-1, 0), (0, 1), (1, 0)][i % 4]
+        yield from ((x := x + dx, y := y + dy) for _ in range(i // 2 + 1))
 
 
 def gen_spiral_matrix(M, N, cx, cy):
@@ -55,7 +40,7 @@ if __name__ == '__main__':
     print(M, N)
     for row in matrix:
         for (i, cell) in enumerate(row):
-            assert cell != 0
+            assert cell > 0
             if i > 0:
                 print(end=' ')
             print(cell, end='')
