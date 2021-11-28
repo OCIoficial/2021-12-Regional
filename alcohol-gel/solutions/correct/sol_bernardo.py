@@ -12,7 +12,7 @@ for i in range(n):
 	else:
 		cs = 0
 		ca = i+1
-	if cs > s:
+	if cs > s or (cs == s and i-ca > tb-ta):
 		s = cs
 		ta = ca
 		tb = i
