@@ -19,7 +19,7 @@ Sebastían compró y vendió alcohol gel durante $n$ días, y para cada uno de e
 La ganancia de un día se define como la resta entre la cantidad de dinero que Sebastían recibió ese día producto de sus ventas y la cantidad de dinero que Sebastían gastó al comprar. Por ejemplo, si en el día $1$ ocurre que $c_1 = 2, p_1 = 6, k_1=1, v_1=5$, entonces su ganancia fue $(1 \cdot 5) - (2 \cdot 6) = -7$.
  La ganancia de una secuencia de días corresponde a la suma de las ganancias de esos días. Por ejemplo, si en el día $2$ ocurre que $c_2 = 3, p_2 = 3, k_2=4, v_2=7$, entonces la ganancia del día $2$ es $19$, y por tanto la ganancía del período entre los días $1$ y $2$ (incluidos) es $(-7) + 19 = 12$.
 
-Dados los datos correspondientes a $n$ días, deberás ayudar a Sebastián a identificar los días $a$ y $b$ tales que la ganancía del período entre los días $a$ y $b$ es lo más alta posible. Si hay multiples períodos con la ganancia máxima, deberás identificar el más reciente.
+Dados los datos correspondientes a $n$ días, deberás ayudar a Sebastián a identificar los días $a$ y $b$ tales que la ganancía del período entre los días $a$ y $b$ es lo más alta posible. Si hay multiples períodos con la ganancia máxima entonces cualquiera de ellos es una respuesta válida. En caso de que ningún período tenga una ganancia positiva, la respuesta deberá ser "IMPOSIBLE".
 
 \end{problemDescription}
 
@@ -29,21 +29,22 @@ es siempre mayor o igual que la cantidad comprada hasta ese día menos la cantid
 \end{inputDescription}
 
 \begin{outputDescription}
-Deberás imprimir $3$ enteros separados por espacios: $a \: b \: g$, donde $a$ y $b$ representan el día en que comienza y el día en termina el período de máxima ganancia, respectivamente, y $g$ representa la ganancia obtenida en el período entre $a$ y $b$ incluidos.
+Deberás imprimir $3$ enteros separados por espacios: $a \: b \: g$, donde $a$ y $b$ representan el día en que comienza y el día en termina el período de máxima ganancia, respectivamente, y $g$ representa la ganancia obtenida en el período entre $a$ y $b$ incluidos. En caso de no haber ningún período de ganancia positiva, deberás imprimir la palabra "IMPOSIBLE".
 \end{outputDescription}
 
 \begin{scoreDescription}
   \subtask{20}
-  $1 \leq n \leq 100, \; \; 1 \leq c_i, k_i, p_i, v_i \leq 10^5$ 
+  $1 \leq n \leq 100, \; \; 1 \leq c_i, k_i, p_i, v_i \leq 100$ 
   \subtask{30}
-  $1 \leq n \leq 5000, \; \; 1 \leq c_i, k_i, p_i, v_i \leq 10^5$ 
+  $1 \leq n \leq 5000, \; \; 1 \leq c_i, k_i, p_i, v_i \leq 100$ 
   \subtask{50}
-  $1 \leq n \leq 10^5, \; \; 1 \leq c_i, k_i, p_i, v_i \leq 10^5$ 
+  $1 \leq n \leq 10^5, \; \; 1 \leq c_i, k_i, p_i, v_i \leq 100$ 
 \end{scoreDescription}
 
 \begin{sampleDescription}
 \sampleIO{sample-1}
 \sampleIO{sample-2}
+\sampleIO{sample-3}
 \end{sampleDescription}
 
 \end{document}
