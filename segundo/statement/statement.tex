@@ -18,7 +18,8 @@ Usando este dato, ¿puedes ayudar a Sergio a determinar cuál es el caballo que 
 \begin{inputDescription}
 La entrada del problema consiste en dos líneas.
 La primera línea contiene un entero $n$ $(2 \le n \le 10^6)$: el número de caballos que compitieron en la misma carrera del año pasado.
-La segunda línea contiene $n$ enteros. El $i$-ésimo entero $t_i$ corresponde al tiempo de llegada a la meta, en milésimas de segundo, del caballo $i$ durante esa carrera. Los números de los caballos siempre son los números entre $0$ y $n-1$, sin que dos caballos tengan el mismo número.
+La segunda línea contiene $n$ enteros. El $i$-ésimo entero $t_i$ $(1 \le t_i \le 10^9)$ corresponde al tiempo de llegada a la meta, en milésimas de segundo, del caballo $i$ durante esa carrera. Los números de los caballos siempre son los números entre $0$ y $n-1$, sin que dos caballos tengan el mismo número.
+Puede asumir que todos los caballos del año pasado corren este año.
 \end{inputDescription}
 
 \begin{outputDescription}
@@ -27,7 +28,7 @@ La salida debe contener una línea con un único entero $i$: el número del caba
 
 \begin{scoreDescription}
   \subtask{10}
-  $n \le 3$ 
+  $n \le 3$
   \subtask{40}
   $n \le 10^5$
   \subtask{50}

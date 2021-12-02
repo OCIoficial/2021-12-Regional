@@ -12,24 +12,66 @@
 # To generate test cases using test plan use `ocimatic input`
 
 
-[Subtask 1]
+[Subtask 1 - validators/st1.cpp]
   # Use sample data as test
-  1 ; copy statement/sample-1.in
-  1 ; copy statement/sample-2.in
+  # 1 ; copy statement/sample-1.in
+  # 1 ; copy statement/sample-2.in
 
-  # Manual test case
-  2 ; copy attic/manual-1.in
+  # Range from 1 to N
+  2 ; shuffled_range.py 2
+  2 ; shuffled_range.py 3
 
-  # Random tests
-  3 ; random.cpp 10 100
-  3 ; random.cpp 100 1000
+  # Random unique numbers
+  3 ; random_sample.py 2
+  3 ; random_sample.py 3
 
+  # Random numbers, only the minimum is repeated
+  4 ; random_sample_repeated_min.py 2
+  4 ; random_sample_repeated_min.py 3
 
-[Subtask 2]
-  # Random tests
-  1 ; random.java 10 20 30
-  1 ; random.java 20 30 40
+  # Random numbers, choose N from M different values (can repeat even if M > N)
+  5 ; random_choices.py 2 3
+  5 ; random_choices.py 2 2
+  5 ; random_choices.py 2 1
+  5 ; random_choices.py 3 4
+  5 ; random_choices.py 3 3
+  5 ; random_choices.py 3 2
+  5 ; random_choices.py 3 1
 
-  # More random tests
-  2 ; random.py 1 1000
+[Subtask 2 - validators/st2.cpp]
+  # Range from 1 to N
+  2 ; shuffled_range.py 100000
 
+  # Random unique numbers
+  3 ; random_sample.py 100000
+
+  # Random numbers, only the minimum is repeated
+  4 ; random_sample_repeated_min.py 99239
+  4 ; random_sample_repeated_min.py 100000
+
+  # Random numbers, choose N from M different values (can repeat even if M > N)
+  5 ; random_choices.py 80000 160000
+  5 ; random_choices.py 90000 180000
+  5 ; random_choices.py 100000 200000
+  5 ; random_choices.py 80000 800
+  5 ; random_choices.py 90000 900
+  5 ; random_choices.py 100000 1000
+
+[Subtask 3 - validators/st3.cpp]
+  # Range from 1 to N
+  2 ; shuffled_range.py 1000000
+
+  # Random unique numbers
+  3 ; random_sample.py 1000000
+
+  # Random numbers, only the minimum is repeated
+  4 ; random_sample_repeated_min.py 992396
+  4 ; random_sample_repeated_min.py 1000000
+
+  # Random numbers, choose N from M different values (can repeat even if M > N)
+  5 ; random_choices.py 800000 1600000
+  5 ; random_choices.py 900000 1800000
+  5 ; random_choices.py 1000000 2000000
+  5 ; random_choices.py 800000 8000
+  5 ; random_choices.py 900000 9000
+  5 ; random_choices.py 1000000 10000
