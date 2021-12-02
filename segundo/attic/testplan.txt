@@ -23,22 +23,29 @@
 
   # Random unique numbers
   3 ; random_sample.py 2
+  3 ; random_sample.py 2
+  3 ; random_sample.py 2
+  3 ; random_sample.py 3
+  3 ; random_sample.py 3
   3 ; random_sample.py 3
 
-  # Random numbers, only the minimum is repeated
-  4 ; random_sample_repeated_min.py 2
-  4 ; random_sample_repeated_min.py 3
-
-  # Random numbers, choose N from M different values (can repeat even if M > N)
-  5 ; random_choices.py 2 3
-  5 ; random_choices.py 2 2
-  5 ; random_choices.py 2 1
-  5 ; random_choices.py 3 4
-  5 ; random_choices.py 3 3
-  5 ; random_choices.py 3 2
-  5 ; random_choices.py 3 1
 
 [Subtask 2 - validators/st2.cpp]
+  # Range from 1 to N
+  2 ; shuffled_range.py 100000
+
+  # Random unique numbers
+  3 ; random_sample.py 100000
+
+  # Random numbers, only the minimum is repeated
+  4 ; random_sample_repeated_min.py 91084
+  4 ; random_sample_repeated_min.py 99239
+  4 ; random_sample_repeated_min.py 99364
+  4 ; random_sample_repeated_min.py 99971
+  4 ; random_sample_repeated_min.py 100000
+
+
+[Subtask 3 - validators/st3.cpp]
   # Range from 1 to N
   2 ; shuffled_range.py 100000
 
@@ -57,7 +64,8 @@
   5 ; random_choices.py 90000 900
   5 ; random_choices.py 100000 1000
 
-[Subtask 3 - validators/st3.cpp]
+
+[Subtask 4 - validators/st4.cpp]
   # Range from 1 to N
   2 ; shuffled_range.py 1000000
 

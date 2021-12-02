@@ -5,7 +5,7 @@ using namespace std;
 int main() {
   registerValidation();
 
-  int N = inf.readInt(2, 100000, "Caballos");
+  int N = inf.readInt(2, 1000000, "Caballos");
   inf.readEoln();
 
   for (int i = 1; i <= N; ++i) {
