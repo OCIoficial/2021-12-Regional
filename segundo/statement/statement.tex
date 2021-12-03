@@ -1,40 +1,56 @@
 \documentclass{oci}
 \usepackage[utf8]{inputenc}
 \usepackage{lipsum}
+\usepackage{xspace}
+
+\newcommand{\caballo}{El Pituco\xspace}
 
 \title{Segundo}
 
 \begin{document}
 \begin{problemDescription}
 Sergio es un fanático de las apuestas.
-Va al hipódromo una vez al mes a participar en las apuestas para levantar apuestas sobre cuál será el caballo más rápido.
+Cada semana va al hipódromo para levantar apuestas sobre los resultados de las carreras.
+Hasta ahora no ha tenido mucha suerte, pero tras años de estudios cree que encontró la fórmula
+infalible para hacerse millonario.
 
-Tras años de experiencia, Sergio asegura que existe un patrón para adivinar el caballo que ganará la carrera que viene a continuación:
-El caballo que gana cada carrera es el mismo caballo que salió en segundo lugar en la misma carrera del año pasado.
+Su plan es entrar en una de las apuestas más riesgosas, pero a su vez una de las que más paga.
+La apuesta consiste en adivinar el tiempo exacto en que un caballo terminará la carrera.
+Esto parece imposible, pero Sergio tiene la información de todas las carreras pasadas de \caballo,
+su caballo favorito, con la cual está seguro que puede predecir el resultado.
 
-Usando este dato, ¿puedes ayudar a Sergio a determinar cuál es el caballo que ganaría según este patrón?
+Específicamente, para cada carrera pasada, Sergio tiene anotado en su libreta el tiempo en que
+\caballo terminó la carrera.
+Sergio sabe que \caballo está en una racha y por lo tanto obtendrá un buen tiempo.
+Después de mucho pensarlo, también determinó que es poco probable que alcance su mejor tiempo entonces
+se decidió por apostar por el segundo mejor tiempo.
+?`Podrías ayudar a Sergio a encontrar este valor?
 \end{problemDescription}
 
 \begin{inputDescription}
 La entrada del problema consiste en dos líneas.
-La primera línea contiene un entero $n$ $(2 \le n \le 10^6)$: el número de caballos que compitieron en la misma carrera del año pasado.
-La segunda línea contiene $n$ enteros. El $i$-ésimo entero $t_i$ $(1 \le t_i \le 10^9)$ corresponde al tiempo de llegada a la meta, en milésimas de segundo, del caballo $i$ durante esa carrera. Los números de los caballos siempre son los números entre $0$ y $n-1$, sin que dos caballos tengan el mismo número.
-Puede asumir que todos los caballos del año pasado corren este año.
+La primera línea contiene un entero $n$ $(2 \le n \le 10^6)$: el número de carreras pasadas para
+las cuales Sergio tiene información.
+Las segunda línea contiene $n$ enteros.
+El $i$-ésimo entero $t_i$ ($0 < t_i \leq 10^9$) indica el tiempo en milisegundos en que \caballo
+terminó la carrera $i$-ésima.
+Se garantiza que \emph{no} todos los valores $t_i$ serán iguales, es decir, hay al menos un valor
+que es distinto a los demás.
 \end{inputDescription}
 
 \begin{outputDescription}
-La salida debe contener una línea con un único entero $i$: el número del caballo que ganará la carrera correspondiente a este año.
+La salida debe contener un entero correspondiente al segundo mejor tiempo en que \caballo
+terminó una carrera pasada.
 \end{outputDescription}
 
 \begin{scoreDescription}
   \subtask{10}
-  $n \le 3$, los tiempos en milisegundos no se repiten (no hay empates).
-  \subtask{20}
-  $n \le 10^5$, los tiempos en milisegundos no se repiten (no hay empates).
+  Se probarán varios casos dónde $n \le 3$.
   \subtask{30}
-  $n \le 10^5$.
-  \subtask{40}
-  No hay restricciones adicionales.
+  Se probarán varios casos dónde $t_i\ne t_j$ para todo $1 \leq i, j \leq n$,
+  es decir, la entrada no contiene valores repetidos.
+  \subtask{60}
+  Se probarán varios casos sin restricciones adicionales.
 \end{scoreDescription}
 
 \begin{sampleDescription}

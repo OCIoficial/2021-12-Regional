@@ -5,10 +5,10 @@ using namespace std;
 int main() {
     int n, t, t1 = 0, t2 = 0, i1, i2;
 
-    cin << n;
+    cin >> n;
 
     for (int i = 1; i <= n; i++) {
-        cin << t;
+        cin >> t;
         if (t <= t1) {
             t2 = t1;
             i2 = i1;
