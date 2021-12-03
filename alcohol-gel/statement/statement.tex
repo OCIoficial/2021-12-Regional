@@ -6,39 +6,71 @@
 
 \begin{document}
 \begin{problemDescription}
-Sebastían siempre tiene un negocio en mente. El año pasado su idea fue hacerse rico vendiendo alcohol gel al por mayor. Lamentablemente no le fue bien, y ahora no sabe cómo convencer financistas para que inviertan en su nuevo emprendimiento.
- Si bien el balance total de su negocio fue negativo, Sebastían tuvo la siguiente idea: encontrar el período de tiempo en que su negocio funcionó mejor, y mostrar solo esa parte de los datos a sus potenciales inversores. 
-Sebastían compró y vendió alcohol gel durante $n$ días, y para cada uno de esos días cuenta con los siguientes datos:
+Sebastián siempre tiene un negocio en mente.
+El año pasado su idea fue hacerse rico vendiendo alcohol gel.
+Lamentablemente su negocio fue un fracaso, y ahora tiene problemas para convencer inversionistas de que
+inviertan en su siguiente emprendimiento.
+Afortunadamente, Sebastián tuvo una brillante idea que cree le ayudará a ocultar su reciente fracaso.
+Si bien el balance total de la venta de alcohol gel fue negativo, si logra encontrar el
+periodo de tiempo en que el negocio tuvo el mejor rendimiento, podría mostrar solo esa parte de los
+datos a sus potenciales inversores.
+
+Sebastián compró y vendió alcohol gel durante $n$ días numerados de 1 a $n$.
+Para cada uno de esos días cuenta con los siguientes datos:
 \begin{itemize}
-	\item La cantidad $c_i$ de paquetes de alcohol que compró. 
-	\item El precio $p_i$ al que compró cada paquete ese día.
-	\item La cantidad $k_i$ de paquetes que logró vender ese día.
-	\item El precio $v_i$ al que vendío cada paquete ese día.
+	\item La cantidad $c_i$ de paquetes de alcohol gel que compró el día $i$.
+	\item El precio $p_i$ al que compró cada paquete el día $i$.
+	\item La cantidad $k_i$ de paquetes que logró vender el día $i$.
+	\item El precio $v_i$ al que vendió cada paquete el día $i$.
 \end{itemize}
+Notar que los paquetes que no son vendidos en un día pueden ser vendidos en los días siguientes y por
+lo tanto para un día $i$ el valor $k_i$ puede ser mayor que $c_i$.
 
-La ganancia de un día se define como la resta entre la cantidad de dinero que Sebastían recibió ese día producto de sus ventas y la cantidad de dinero que Sebastían gastó al comprar. Por ejemplo, si en el día $1$ ocurre que $c_1 = 2, p_1 = 6, k_1=1, v_1=5$, entonces su ganancia fue $(1 \cdot 5) - (2 \cdot 6) = -7$.
- La ganancia de una secuencia de días corresponde a la suma de las ganancias de esos días. Por ejemplo, si en el día $2$ ocurre que $c_2 = 3, p_2 = 3, k_2=4, v_2=7$, entonces la ganancia del día $2$ es $19$, y por tanto la ganancía del período entre los días $1$ y $2$ (incluidos) es $(-7) + 19 = 12$.
+El balance $b_i$ del día $i$ se define como la resta entre la cantidad de dinero que Sebastián
+recibió ese día producto de sus ventas y la cantidad de dinero que Sebastián gastó en comprar alcohol gel.
+Específicamente, $b_i = k_i\times v_i - c_i\times p_i$.
+Por ejemplo, si en el día $1$ ocurre que $c_1 = 2, p_1 = 6, k_1=1, v_1=5$, entonces el balance $b_1$
+para el día $1$ es $(1 \times 5) - (2 \times 6) = -7$.
+El balance de un periodo de días consecutivos corresponde a la suma de los balances de esos días.
+Por ejemplo, continuando con el ejemplo anterior, si en el día $2$ ocurre que
+$c_2 = 3, p_2 = 3, k_2=4, v_2=7$ entonces el balance del día 2 es $b_2=19$, y por tanto del balance
+del periodo comprendido entre los días $1$ y $2$ (incluidos) es $(-7) + 19 = 12$.
 
-Dados los datos correspondientes a $n$ días, deberás ayudar a Sebastián a identificar los días $a$ y $b$ tales que la ganancía del período entre los días $a$ y $b$ es lo más alta posible. Si hay múltiples períodos con la ganancia máxima, entonces deberás identificar uno de máximo largo. Si hay múltiples períodos con igual ganancia máxima y de largo máximo entonces cualquiera de ellos es una respuesta válida. En caso de que ningún período tenga una ganancia positiva, la respuesta deberá ser "IMPOSIBLE".
+Dados los datos correspondientes a los $n$ días, tu tarea es ayudar a Sebastián a identificar los días
+$j$ y $k$ tales que el periodo comprendido entre los días $j$ y $k$ tenga ganancia máxima.
+Es decir, el periodo cuyo balance sea positivo y que además su valor sea máximo.
+Si hay múltiples periodos con ganancia máxima, deberás identificar el de mayor largo.
+Si hay múltiples periodos con igual ganancia máxima e igual largo máximo entonces cualquiera de ellos
+es una respuesta válida.
+En caso de que ningún periodo tenga un balance positivo, la respuesta deberá ser \verb|IMPOSIBLE|.
 
 \end{problemDescription}
 
 \begin{inputDescription}
-La primera línea $n$ indica el número de días. A continuación la siguen $n$ líneas, cada una de la cuales está compuesta por $4$ enteros no negativos, $c_i, p_i, k_i$ y $v_i$, para $i$ entre $1$ y $n$. Se garantiza además que la cantidad vendida en un día $i$ 
-es siempre mayor o igual que la cantidad comprada hasta ese día menos la cantidad vendida hasta el día anterior.
+La primera línea contiene un entero $n$ ($0 < n \leq 10^5$) correspondiente al número de días.
+Las siguientes $n$ líneas describen cada uno de los días.
+La línea $i$-ésima contiene los enteros $c_i, p_i, k_i$ y $v_i$ ($0 < c_i, k_i, p_i, v_i \leq 100$)
+correspondientes al día $i$.
+Se garantiza además que la cantidad $v_i$ de paquetes vendidos es siempre menor o igual
+que la cantidad $c_i$ de paquetes comprados el día $i$ más la cantidad de paquetes no vendidos
+en días anteriores, es decir, Sebastián solo puede vender lo que tiene en stock.
 \end{inputDescription}
 
 \begin{outputDescription}
-Deberás imprimir $3$ enteros separados por espacios: $a \: b \: g$, donde $a$ y $b$ representan el día en que comienza y el día en termina el período de máxima ganancia, respectivamente, y $g$ representa la ganancia obtenida en el período entre $a$ y $b$ incluidos. En caso de no haber ningún período de ganancia positiva, deberás imprimir la palabra "IMPOSIBLE".
+En caso de haber solución la salida debe contener tres enteros $j$, $k$ y $g$.
+Los enteros $j$ y $k$ representan respectivamente el día de inicio y de fin del periodo con ganancia
+y largo máximo.
+El valor $g$ corresponde a la ganancia en el periodo comprendido entre los días $j$ y $k$.
+En caso de no haber ningún período de balance positivo deberás imprimir \verb|IMPOSIBLE|.
 \end{outputDescription}
 
 \begin{scoreDescription}
   \subtask{20}
-  $1 \leq n \leq 100, \; \; 1 \leq c_i, k_i, p_i, v_i \leq 100$ 
+  Se probarán varios casos donde $1 \leq n \leq 100$.
   \subtask{30}
-  $1 \leq n \leq 5000, \; \; 1 \leq c_i, k_i, p_i, v_i \leq 100$ 
+  Se probarán varios casos donde $1 \leq n \leq 5000$.
   \subtask{50}
-  $1 \leq n \leq 10^5, \; \; 1 \leq c_i, k_i, p_i, v_i \leq 100$ 
+  Se probarán varios casos sin restricciones adicionales.
 \end{scoreDescription}
 
 \begin{sampleDescription}
