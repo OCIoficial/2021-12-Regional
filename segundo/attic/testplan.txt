@@ -35,14 +35,11 @@
   2 ; shuffled_range.py 100000
 
   # Random unique numbers
+  3 ; random_sample.py 91084
+  3 ; random_sample.py 99239
+  3 ; random_sample.py 99364
+  3 ; random_sample.py 99971
   3 ; random_sample.py 100000
-
-  # Random numbers, only the minimum is repeated
-  4 ; random_sample_repeated_min.py 91084
-  4 ; random_sample_repeated_min.py 99239
-  4 ; random_sample_repeated_min.py 99364
-  4 ; random_sample_repeated_min.py 99971
-  4 ; random_sample_repeated_min.py 100000
 
 
 [Subtask 3 - validators/st3.cpp]
