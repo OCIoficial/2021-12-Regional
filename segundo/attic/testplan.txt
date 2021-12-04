@@ -29,40 +29,31 @@
   3 ; random_sample.py 3
   3 ; random_sample.py 3
 
+  # Random numbers, only the minimum is repeated
+  4 ; random_sample_repeated_min.py 3
+  4 ; random_sample_repeated_min.py 3
+
+  # Random numbers, choose N from M different values (can repeat even if M > N)
+  5 ; random_choices.py 2 3
+  5 ; random_choices.py 3 6
+  5 ; random_choices.py 3 9
+  5 ; random_choices.py 3 12
+  5 ; random_choices.py 3 15
+
 
 [Subtask 2 - validators/st2.cpp]
   # Range from 1 to N
-  2 ; shuffled_range.py 100000
+  2 ; shuffled_range.py 900000
+  2 ; shuffled_range.py 1000000
 
   # Random unique numbers
-  3 ; random_sample.py 91084
-  3 ; random_sample.py 99239
-  3 ; random_sample.py 99364
-  3 ; random_sample.py 99971
-  3 ; random_sample.py 100000
+  3 ; random_sample.py 700000
+  3 ; random_sample.py 800000
+  3 ; random_sample.py 900000
+  3 ; random_sample.py 1000000
 
 
 [Subtask 3 - validators/st3.cpp]
-  # Range from 1 to N
-  2 ; shuffled_range.py 100000
-
-  # Random unique numbers
-  3 ; random_sample.py 100000
-
-  # Random numbers, only the minimum is repeated
-  4 ; random_sample_repeated_min.py 99239
-  4 ; random_sample_repeated_min.py 100000
-
-  # Random numbers, choose N from M different values (can repeat even if M > N)
-  5 ; random_choices.py 80000 160000
-  5 ; random_choices.py 90000 180000
-  5 ; random_choices.py 100000 200000
-  5 ; random_choices.py 80000 800
-  5 ; random_choices.py 90000 900
-  5 ; random_choices.py 100000 1000
-
-
-[Subtask 4 - validators/st4.cpp]
   # Range from 1 to N
   2 ; shuffled_range.py 1000000
 
