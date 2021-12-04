@@ -3,24 +3,23 @@
 using namespace std;
 
 int main() {
-    int n, t, t1 = 0, t2 = 0, i1, i2;
+    int n, t, t1 = 1000000001, t2 = 1000000002;
+
+    ios_base::sync_with_stdio(false);
 
     cin >> n;
 
-    for (int i = 1; i <= n; i++) {
+    while (n--) {
         cin >> t;
-        if (t <= t1) {
+        if (t < t1) {
             t2 = t1;
-            i2 = i1;
             t1 = t;
-            i1 = i;
-        } else if (t <= t2) {
+        } else if (t > t1 && t < t2) {  // Descartamos t == t1
             t2 = t;
-            i2 = i;
         }
     }
 
-    cout << i2 << endl;
+    cout << t2 << endl;
 
     return 0;
 }
