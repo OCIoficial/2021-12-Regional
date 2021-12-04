@@ -1,56 +1,79 @@
 \documentclass{oci}
 \usepackage[utf8]{inputenc}
 \usepackage{lipsum}
+\usepackage{tikz}
 
 \title{Ejemplo}
 
 \begin{document}
 \begin{problemDescription}
-  Alicia y Bob están jugando un juego muy particular en un calendario de un mes de 30 días.
+  En una tarde aburrida en su casa Alicia inventó un juego muy particular.
+  Para poder jugarlo solo se necesita un lápiz y el calendario de un mes de 30 días.
+  Comenzando en un día $x$ del mes, el juego consiste en aplicar una serie de reglas para
+  moverse entre los días del mes tachando cada día visitado.
+  El juego termina al visitar un día que ya había sido tachado o no es posible aplicar
+  una regla.
+  Las reglas específicas se detallan más adelante.
 
-  El juego consiste en lo siguiente, comenzando en la fecha $x$ del mes:
-  \begin{enumerate}
-    \item Si el día actual está tachado, terminan de jugar.
-    \item Alicia y Bob tachan el día actual $x$.
-    \item Si el día actual ($x$) corresponde a:
-    \begin{itemize}
-      \item[Lunes:] Avanzan de uno en uno hasta encontrar un día no tachado.
-      \item[Martes:]  El siguiente día será el reflejo del día actual con respecto al centro del mes. Por ejemplo:
-      \begin{itemize}
-        \item Si $x=1$, el siguiente día será $30$.
-        \item Si $x=2$, el siguiente día será $29$.
-        \item Si $x=15$, el siguiente día será $16$.
-        \item Si $x=30$, el siguiente día será $1$.
-      \end{itemize}
-      \item[Miércoles:] Si $x$ es par, avanzan un día. Si no, retroceden un día.
-      \item[Jueves:] Avanzan $10$ días.
-      \item[Viernes:] Si $x$ es par, el siguiente día será $\frac{x}{2}$. Si no, será $3 \cdot x + 1$.
-      \item[Sábado:] El siguiente día será $2 \cdot x$.
-      \item[Domingo:] Avanzan de dos en dos hasta encontrar un día no tachado.
-    \end{itemize}
-  \end{enumerate}
+  Los días del mes se numeran de 1 a 30.
+  Dependiendo del mes, el primer día puede caer en distintos días de la semana y esto cambiará
+  el desarrollo del juego.
+  La siguiente imagen muestra el calendario de un mes donde el primer día cae un viernes.
+  \begin{center}
+    \begin{tikzpicture}
+      \draw (0, 0) grid (7, 5);
+      \def\weeks{5}
+      \def\start{4}
+      \foreach \d [count=\x from 0] in {Lu, Ma, Mi, Ju, Vi, Sa, Do}{
+        \node at (\x + 0.5, \weeks + 0.5) {\textbf{\d}};
+      };
+      \foreach \i in {0, ..., 29}{
+        \pgfmathtruncatemacro{\x}{Mod(\start + \i, 7)}
+        \pgfmathtruncatemacro{\y}{(\start + \i) / 7}
+        \pgfmathtruncatemacro{\d}{\i + 1}
+        \node[fill=white] at (\x + 0.5, \weeks - \y - 0.5) {\d};
+      }
+    \end{tikzpicture}
+  \end{center}
 
-  \textbf{Importante:} Si en cualquier momento se pasan del día 30, vuelven al día 1. Por ejemplo: si caen en el día 35 volverán al día 5, y así.
+  A continuación se describe en detalle las reglas del juego.
+  La regla que hay que aplicar depende del día de la semana del día actual.
 
+  \begin{description}
+    \item[Lunes] Avanzar de uno en uno hasta encontrar un día no tachado y moverse a este día.
+    Si no queda ningún día sin tachar la regla no puede aplicarse y el juego termina en el día actual.
+    \item[Martes] Moverse al día correspondiente al reflejo del día actual con respecto al centro
+    del mes, es decir, si el día actual es $i$ moverse al día $30 - i + 1$.
+    \item[Miércoles] Si el día actual es par, moverse al día siguiente. En caso contrario, moverse al día anterior.
+    \item[Jueves] Moverse 10 días adelante.
+    Si el día cae fuera del mes dar la vuelta al mes.
+    Por ejemplo si el día actual es 28 moverse al día 8.
+    \item[Viernes] Si el día actual $i$ es par, moverse al día $i/2$. En caso contrario, moverse al día $3\times i + 1$.
+    Si el día cae fuera del mes dar vueltas al mes cuantas veces sea necesario.
+    \item[Sábado] Si el día actual es $i$ moverse al día $2\times i$ dando las vueltas al mes cuantas veces sea necesario.
+    \item[Domingo] Avanzar de dos en dos hasta encontrar un día no tachado.
+    Si no queda ningún día sin tachar la regla no puede aplicarse y el juego termina en el día actual.
+  \end{description}
 \end{problemDescription}
 
 \begin{inputDescription}
-  La primera y única línea de la entrada contiene dos números enteros separados por espacios:
-  \begin{itemize}
-    \item $d$ ($0 \leq d \leq 6$) indicando a qué día corresponde el primer día del mes. Si $d$ es $0$, el mes comienza un lunes, si es $1$ un martes y así hasta domingo.
-    \item $x$ ($1 \leq x \leq 30$) indicando el día inicial del juego.
-  \end{itemize}
+  La entrada contiene una línea con dos enteros $d$ ($0 \leq d \leq 6$) y $x$ ($1 \leq x \leq 30$).
+  El entero $d$ corresponde al día de la semana en que cae el primer día del mes.
+  Si $d$ es $0$ el mes comienza un lunes, si $d$ es $1$ el mes comienza un martes y así hasta el domingo.
+  El entero $x$ indica el día del mes en que comienza el juego.
 \end{inputDescription}
 
 \begin{outputDescription}
-  Debes imprimir un solo número entero indicando el día del mes en el que terminan el juego.
+  La salida debe contener un único entero indicando el día del mes en el que termina el juego.
 \end{outputDescription}
 
 \begin{scoreDescription}
-  \subtask{40}
-  $d = 1$
-  \subtask{60}
-  $1 \leq d \leq 7$
+  Este enunciado no contiene subtareas, se entregará puntaje proporcional a la cantidad de casos
+  de prueba correctos siendo 100 el puntaje máximo.
+  % \subtask{40}
+  % Se probarán varios casos donde $d = 0$, es decir, el mes siempre comienza un lunes.
+  % \subtask{60}
+  % Se probarán varios casos sin restricciones adicionales.
 \end{scoreDescription}
 
 \begin{sampleDescription}
