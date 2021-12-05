@@ -10,11 +10,11 @@ int main() {
 
   int stock = 0;
   for (int i = 1; i <= N; ++i) {
-    int c = inf.readInt(1, 100, "Purchases count");
+    int c = inf.readInt(0, 100, "Purchases count");
     inf.readSpace();
     int p = inf.readInt(1, 100, "Purchase price");
     inf.readSpace();
-    int k = inf.readInt(1, 100, "Sales count");
+    int k = inf.readInt(0, 100, "Sales count");
     inf.readSpace();
     int v = inf.readInt(1, 100, "Sale price");
     inf.readEoln();
