@@ -2,7 +2,7 @@
 # ramp.py M N [asc|desc]
 # spiral.py M N cy cx
 
-[Subtask 1]
+[Subtask 1 - validators/st1.cpp]
 
   rand_small_dense  ; gen_random.py 1 10 20
   rand_small_dense  ; gen_random.py 1 20 20
@@ -30,7 +30,7 @@
   spiral_small      ; spiral.py 1 10   0 5
   spiral_big        ; spiral.py 1 1000 0 500
 
-[Subtask 2]
+[Subtask 2 - validators/st2.cpp]
   rand_small_dense  ; gen_random.py 20 32 40
   rand_small_dense  ; gen_random.py 50 10 30
   rand_small_sparse ; gen_random.py 12 23 1000000000
