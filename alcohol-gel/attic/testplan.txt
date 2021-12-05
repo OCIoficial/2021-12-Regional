@@ -12,7 +12,7 @@
 # To generate test cases using test plan use `ocimatic input`
 
 
-[Subtask 1]
+[Subtask 1 - validators/st1.cpp]
   # n <= 100
 
   # Use sample data as test
@@ -54,7 +54,7 @@
   4 ; random_generator.py 10 100 15
   4 ; random_generator.py 10 100 15
 
-[Subtask 2]
+[Subtask 2 - validators/st2.cpp]
   # n <= 5000
 
   # Random tests
@@ -113,7 +113,7 @@
   3 ; random_generator.py 1000 5000 15
   3 ; random_generator.py 1000 5000 15
 
-[Subtask 3]
+[Subtask 3 - validators/st3.cpp]
   # n <= 10^5
 
   # Random tests
