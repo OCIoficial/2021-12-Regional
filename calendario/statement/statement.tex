@@ -66,7 +66,7 @@ cross/.default={1pt}}
     En caso contrario, moverse al día $3\times i + 1$.
     Si $3\times i + 1$ es mayor que 30 restarle 30 al resultado hasta que este sea menor que 30.
 
-    \item[\bf Sábado] Si el día actual es $i$ moverse al día $2\cdot i$.
+    \item[\bf Sábado] Si el día actual es $i$ moverse al día $2\times i$.
     Si $2\times i$ es mayor que restarle 30 al resultado hasta que este sea menor que 30.
 
     \item[\bf Domingo] Avanzar de dos en dos hasta encontrar un día no tachado y moverse a este día.
@@ -76,9 +76,9 @@ cross/.default={1pt}}
 
   Considera el calendario del ejemplo mostrado anteriormente donde el primer día cae un viernes.
   Si escogemos el día inicial $x=16$ este cae un sábado.
-  La regla para el sábado dice que hay que moverse al día $2\cdot 16 = 32$, como este es mayor que 30
+  La regla para el sábado dice que hay que moverse al día $2\times 16 = 32$, como este es mayor que 30
   restamos 30 una vez y nos movemos al día 2.
-  El día 2 cae un sábado nuevamente y por lo tanto nos movemos al día $2\cdot 2=4$.
+  El día 2 cae un sábado nuevamente y por lo tanto nos movemos al día $2\times 2=4$.
   El día 4 cae un lunes.
   La regla del lunes dice que hay que encontrar el siguiente día no tachado el cual es el martes 5.
   La regla para el martes nos pide movernos al reflejo que en este caso corresponde al día $31 - 5 = 26$.
