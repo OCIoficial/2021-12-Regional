@@ -31,7 +31,7 @@ int main() {
   if (sol <= 0) {
     printf("-1\n");
   } else {
-    printf("%d", sol);
+    printf("%d\n", sol);
   }
 
   return 0;
