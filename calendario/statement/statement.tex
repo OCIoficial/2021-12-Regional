@@ -9,7 +9,7 @@
 %default radius will be 1pt.
 cross/.default={1pt}}
 
-\title{Ejemplo}
+\title{El juego del calendario}
 
 \begin{document}
 \begin{problemDescription}
@@ -43,8 +43,8 @@ cross/.default={1pt}}
   que moverse el cual debe ser tachado marcándolo como visitado.
   El juego termina cuando una regla indica que hay que moverse a un día que ya había sido tachado
   o cuando no es posible aplicar una regla.
-  La regla que hay que aplicar en cada paso depende del día de la semana en que cae el día actual
-  y cada una se detalla a continuación.
+  La regla que hay que aplicar en cada paso depende del día de la semana en que cae el día actual.
+  Las reglas para cada día de la semana se detallan a continuación:
   \begin{itemize}
    \item[\bf Lunes] Avanzar de uno en uno hasta encontrar el primer día no tachado y moverse a este día.
     Si al avanzar buscando un día sin tachar se llega al final del mes se debe \emph{dar la vuelta} y
