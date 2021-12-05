@@ -10,7 +10,7 @@ int main() {
     int ci, pi, ki, vi;
     scanf("%d%d%d%d", &ci, &pi, &ki, &vi);
     int b = ki * vi - ci * pi;
-    if (g + b > 0) {
+    if (g + b >= 0) {
       g += b;
 
       if (g > max_g || (g == max_g && i - j > max_k - max_j)) {

@@ -7,7 +7,7 @@ ca = 0
 for i in range(n):
     c, p, k, v = map(int, input().split(" "))
     daily_diff = k * v - c * p
-    if cs + daily_diff > 0:
+    if cs + daily_diff >= 0:
         cs += daily_diff
     else:
         cs = 0
