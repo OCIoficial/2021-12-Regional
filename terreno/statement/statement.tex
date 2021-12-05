@@ -1,8 +1,9 @@
 \documentclass{oci}
 \usepackage[utf8]{inputenc}
 \usepackage{lipsum}
+\usepackage{tikz}
 
-\title{Ejemplo}
+\title{Descenso en parapente}
 
 \begin{document}
 \begin{problemDescription}
@@ -19,6 +20,27 @@ La geografía de Nlogonia es además peculiar pues sus montañas están dispuest
 grilla de $M$ filas y $N$ columnas.
 Las filas en la grilla son numeradas de 1 a $M$ y avanzan en la dirección sur.
 Las columnas están numeradas de 1 a $N$ y avanzan en la dirección este.
+La siguiente imagen muestra un ejemplo de la numeración para una grilla de 4 filas y 5 columnas.
+\begin{center}
+  \scalebox{0.8}{
+    \begin{tikzpicture}
+      \def\M{4}
+      \def\N{5}
+      \draw (0, 0) grid (\N,\M);
+      \foreach \x [count=\i from 1] in {1, ..., \N} {
+        \node at (\x - 0.5, \M + 0.3) {\i};
+      }
+      \foreach \y [count=\i from 1] in {1, ..., \M} {
+        \node at (-0.3, \M - \y + 0.5) {\i};
+      }
+      \node at (\N/2, \M + 1) {\bf N};
+      \node at (\N/2, -1)     {\bf S};
+      \node at (-1, \M/2)     {\bf O};
+      \node at (\N + 1, \M/2) {\bf E};
+    \end{tikzpicture}
+  }
+\end{center}
+
 Decimos que la montaña en la fila $i$ y columna $j$ se encuentra en la posición $(i,j)$ y que
 tiene altura $A(i,j)$.
 Por lo tanto, podemos representar una ruta con dos pares $(i, j)$ y $(k,l)$, donde el primer par
@@ -38,9 +60,12 @@ El viento en Nlogonia sopla siempre en dirección sureste.
 Por lo tanto, Maiki está interesada en encontrar una ruta cuya distancia de descenso sea máxima,
 pero solo entre las rutas válidas en dirección sureste.
 Específicamente, una ruta es en dirección sureste si las posiciones de inicio $(i, j)$ y final $(k, l)$
-cumplen $i < k$ y $j < l$.
-
-DIBUJO[marcar varias rutas y decir cuáles son válidas y cuáles no]
+cumplen las siguientes condiciones:
+\begin{itemize}
+\item $i \le k$
+\item $j \le l$
+\item $i \ne k$ o $j \ne l$.
+\end{itemize}
 
 Maiki es una piloto experto, pero la programación no es lo suyo y necesita de tu ayuda para
 encontrar la ruta válida en dirección sureste con mayor distancia de descenso.

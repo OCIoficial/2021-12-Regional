@@ -16,5 +16,6 @@ if __name__ == '__main__':
     N = read_arg(sys.argv[3], 1, 1000)
     MAX_HEIGHT = read_arg(sys.argv[4], 1, 1_000_000_000)
 
+    print(M, N)
     for _ in range(M):
-        row = [random.randint(1, MAX_HEIGHT) for _ in range(N)]
+        print(' '.join(str(random.randint(1, MAX_HEIGHT)) for _ in range(N)))
