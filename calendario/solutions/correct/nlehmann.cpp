@@ -26,7 +26,7 @@ int main() {
     return x;
   };
   auto tue = [](int i) { return 31 - i; };
-  auto wed = [](int i) { return i % 2 == 0 ? cap(i + 1) : cap(i - 1 + 30); };
+  auto wed = [](int i) { return i % 2 == 0 ? i - 1 : i + 1; };
   auto thu = [](int i) { return cap(i + 10); };
   auto fri = [](int i) { return i % 2 == 0 ? i / 2 : cap(3 * i + 1); };
   auto sat = [](int i) { return cap(2 * i); };
