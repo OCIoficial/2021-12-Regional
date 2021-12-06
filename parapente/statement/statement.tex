@@ -9,8 +9,7 @@
 \begin{problemDescription}
 
 La nación de Nlogonia está cubierta completamente de montañas.
-Por esta razón, se ha convertido en un popular destino para los fanáticos de los planeadores
-flexibles ultraligeros, también conocidos como parapentes.
+Por esta razón, se ha convertido en un popular destino para los fanáticos de los parapentes.
 Debido a la multitud de montañas, Nlogonia presenta a los pilotos de parapente la posibilidad de
 escoger entre una inmensidad de \emph{rutas} diferentes.
 Para escoger una nueva ruta, los pilotos solo deben elegir la cima de una montaña desde donde
@@ -75,7 +74,7 @@ encontrar la ruta válida en dirección sureste con mayor distancia de descenso.
 \begin{inputDescription}
 La primera línea de la entrada contiene dos enteros $M$ y $N$ ($0 < M \leq 1000$, $0 < N \leq 1000$)
 correspondientes respectivamente a la cantidad de filas y columnas en la grilla.
-Cada una de las siguientes $M$ líneas contienen $N$ enteros y describe una fila en la grilla.
+Cada una de las siguientes $M$ líneas contiene $N$ enteros y describe una fila en la grilla.
 El entero $j$-ésimo de la fila $i$-ésima corresponde a la altura $A(i,j)$ ($ 0 < A(i, j) \leq 10^9$)
 de la montaña en la posición $(i,j)$.
 \end{inputDescription}
@@ -89,6 +88,7 @@ Si no hay ninguna ruta válida en dirección sureste la salida debe contener un 
 \begin{scoreDescription}
   \subtask{30}
   Se probarán varios casos donde $M=1$, es decir, la grilla contiene solo una fila.
+  Notar que en este caso la dirección sureste es equivalente a la dirección este.
   \subtask{70}
   Se probarán varios casos sin restricciones adicionales.
 \end{scoreDescription}
