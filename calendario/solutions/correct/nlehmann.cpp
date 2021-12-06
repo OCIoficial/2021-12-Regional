@@ -12,7 +12,7 @@ int cap(int x) {
 
 int main() {
   int d, x;
-  vector<bool> marked(30);
+  vector<bool> marked(31);
 
   scanf("%d%d", &d, &x);
 
