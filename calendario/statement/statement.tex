@@ -54,20 +54,18 @@ cross/.default={1pt}}
     \item[\bf Martes] Moverse al día que corresponde al \emph{reflejo} del día actual.
     Es decir, si el día actual es $i$ moverse al día $31 - i$.
 
-    \item[\bf Miércoles] Si el día actual es par, moverse al día siguiente.
-    En caso de encontrarse en el día 30 se debe dar la vuelta y moverse al día 1.
-    Si el día actual es impar, moverse al día anterior.
-    Similarmente, en caso de encontrarse en el día 1 hay que dar la vuelta y moverse al día 30.
+    \item[\bf Miércoles] Si el día actual es par, moverse al día anterior.
+    Si el día actual es impar, moverse al día siguiente.
 
     \item[\bf Jueves] Moverse al día que esta 10 posiciones adelante dando la vuelta en caso de
     llegar al final del mes.
 
     \item[\bf Viernes] Si el día actual $i$ es par, moverse al día $i/2$.
     En caso contrario, moverse al día $3\times i + 1$.
-    Si $3\times i + 1$ es mayor que 30 restarle 30 al resultado hasta que este sea menor que 30.
+    Si $3\times i + 1$ es mayor que 30 restarle 30 al resultado hasta que este sea menor o igual que 30.
 
     \item[\bf Sábado] Si el día actual es $i$ moverse al día $2\times i$.
-    Si $2\times i$ es mayor que 30 restarle 30 al resultado hasta que este sea menor que 30.
+    Si $2\times i$ es mayor que 30 restarle 30 al resultado hasta que este sea menor o igual que 30.
 
     \item[\bf Domingo] Avanzar de dos en dos hasta encontrar un día no tachado y moverse a este día.
     Dar la vuelta al mes en caso de ser necesario.
