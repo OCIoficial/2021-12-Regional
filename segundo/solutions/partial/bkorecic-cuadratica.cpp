@@ -14,15 +14,15 @@ int main(){
   int n; cin >> n;
   vector <int> a(n);
   for(int i=0; i<n; i++) cin >> a[i];
-  // solución cuadrática: para cada uno, contamos cuantos mayores a él hay
+  // solución cuadrática: para cada uno, contamos cuantos valores distintos mayores a él hay
   // xd
   for(int i=0; i<n; i++){
-    int cnt=0;
+    set <int> bigger;
     for(int j=0; j<n; j++){
-      if(a[j] > a[i]) cnt++;
+      if(a[j] > a[i]) bigger.insert(a[j]);
     }
-    if(cnt == 1){ // encontramos el segundo!!1111
-      cout << i << '\n';
+    if(bigger.size() == 1){ // encontramos el segundo!!1111
+      cout << a[i] << '\n';
       exit(0);
     }
   }
