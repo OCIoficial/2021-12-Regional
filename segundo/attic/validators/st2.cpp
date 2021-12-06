@@ -11,11 +11,13 @@ int main() {
 
   
   set<int> ts;
-  for (int i = 1; i <= N; ++i) {
-    int t = inf.readInt(1, 1000000000, "Time");
-    ensuref(ts.find(t) == ts.end(), "Times must be unique.");
+  int t = inf.readInt(1, 1000000000, "Time");
+  ts.insert(t);
+  for (int i = 2; i <= N; ++i) {
+    inf.readSpace();
+    t = inf.readInt(1, 1000000000, "Time");
+    ensuref(ts.find(t) == ts.end(), "Duplicate time %d.", t);
     ts.insert(t);
-    if (i != N) inf.readSpace();
   }
   ensuref(ts.size() >= 2, "Should not happen.");
   inf.readEoln();
