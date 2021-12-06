@@ -14,8 +14,7 @@
 
 [Subtask 1 - validators/st1.cpp]
   # Use sample data as test
-  # 1 ; copy statement/sample-1.in
-  # 1 ; copy statement/sample-2.in
+  1 ; copy statement/sample-2.in
 
   # Range from 1 to N
   2 ; shuffled_range.py 2
@@ -42,6 +41,9 @@
 
 
 [Subtask 2 - validators/st2.cpp]
+  # Use sample data as test
+  1 ; copy statement/sample-1.in
+
   # Range from 1 to N
   2 ; shuffled_range.py 900000
   2 ; shuffled_range.py 1000000
