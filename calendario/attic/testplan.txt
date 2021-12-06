@@ -12,7 +12,7 @@
 # To generate test cases using test plan use `ocimatic input`
 
 
-[Subtask 1]
+[Subtask 1 - validators/st1.cpp]
   # Hand picked tests for each starting day
   hand-picked-mon ; echo 0 2
   hand-picked-mon ; echo 0 5
