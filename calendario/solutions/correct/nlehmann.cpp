@@ -10,8 +10,6 @@ int cap(int x) {
   return x;
 }
 
-typedef double (*rule)(int);
-
 int main() {
   int d, x;
   vector<bool> marked(30);
