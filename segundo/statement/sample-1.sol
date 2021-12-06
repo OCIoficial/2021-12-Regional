@@ -1,1 +1,1 @@
-<sample output data here>
+47000
