@@ -12,24 +12,55 @@
 # To generate test cases using test plan use `ocimatic input`
 
 
-[Subtask 1 - validators/st1.cpp]
-  # Use sample data as test
-  1 ; copy statement/sample-1.in
-  1 ; copy statement/sample-2.in
+[Subtask 1]
+  # Hand picked tests for each starting day
+  hand-picked-mon ; echo 0 2
+  hand-picked-mon ; echo 0 5
+  hand-picked-mon ; echo 0 20
+  hand-picked-mon ; echo 0 25
 
-  # Manual test case
-  2 ; copy attic/manual-1.in
+  hand-picked-tue ; echo 1 6
+  hand-picked-tue ; echo 1 10
+  hand-picked-tue ; echo 1 13
+  hand-picked-tue ; echo 1 17
+  hand-picked-tue ; echo 1 21
+  hand-picked-tue ; echo 1 30
 
-  # Random tests
-  3 ; random.cpp 10 100
-  3 ; random.cpp 100 1000
+  hand-picked-wed ; echo 2 1
+  hand-picked-wed ; echo 2 4
+  hand-picked-wed ; echo 2 9
+  hand-picked-wed ; echo 2 17
+  hand-picked-wed ; echo 2 24
+  
+  hand-picked-thu ; echo 3 3
+  hand-picked-thu ; echo 3 9
+  hand-picked-thu ; echo 3 14
+  hand-picked-thu ; echo 3 29
+  hand-picked-thu ; echo 3 30
 
+  hand-picked-fri ; echo 4 1
+  hand-picked-fri ; echo 4 7
+  hand-picked-fri ; echo 4 10
+  hand-picked-fri ; echo 4 13
+  hand-picked-fri ; echo 4 30
+  
+  hand-picked-sat ; echo 5 1
+  hand-picked-sat ; echo 5 8
+  hand-picked-sat ; echo 5 13
+  hand-picked-sat ; echo 5 14
+  hand-picked-sat ; echo 5 16
+  hand-picked-sat ; echo 5 23
 
-[Subtask 2]
-  # Random tests
-  1 ; random.java 10 20 30
-  1 ; random.java 20 30 40
-
-  # More random tests
-  2 ; random.py 1 1000
-
+  hand-picked-sun ; echo 6 1
+  hand-picked-sun ; echo 6 5
+  hand-picked-sun ; echo 6 6
+  hand-picked-sun ; echo 6 13
+  hand-picked-sun ; echo 6 25
+  
+  # Manually crafted tests for border cases
+  
+  border-cases ; copy attic/manual-cases/monday-wrap.in
+  border-cases ; copy attic/manual-cases/saturday-1step.in
+  border-cases ; copy attic/manual-cases/saturday-wrap.in
+  border-cases ; copy attic/manual-cases/sunday-wrap.in
+  border-cases ; copy attic/manual-cases/thursday-wrap.in
