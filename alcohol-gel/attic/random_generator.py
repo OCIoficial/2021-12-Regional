@@ -16,7 +16,9 @@ for i in range(n):
 	price_bought = random.randint(1, up_values)
 	amount_sold = random.randint(1, min(up_values,int((1.1+np)*amount_bought), acc_amount, int((0.7 + np)*acc_amount)))
 	acc_amount -= amount_sold
-	price_sold =  random.randint(min(int(price_bought*np), up_values), min(int(price_bought*(0.7 + np)), up_values))
+	price_sold =  random.randint(min(int(price_bought*np), up_values), 
+				     min(int(price_bought*(0.7 + np)), up_values))
+	price_sold = max(price_sold, 1)
 	inp.append((amount_bought, price_bought, amount_sold, price_sold))
 
 # print input
