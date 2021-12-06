@@ -18,7 +18,14 @@ int main() {
     inf.readSpace();
     int v = inf.readInt(1, 100, "Sale price");
     inf.readEoln();
-    ensuref(stock + c >= k, "Cannot sell more than available stock.");
+    ensuref(
+        stock + c >= k,
+        "Day %d: cannot sell more than available stock (%d + %d < %d).",
+        i,
+        stock,
+        c,
+        k
+    );
     stock += c - k;
   }
   inf.readEof();
