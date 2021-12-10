@@ -17,9 +17,9 @@ jobs:
       - uses: xu-cheng/texlive-action/full@v1
         with:
           run: |
-            pdflatex parapente/statement/statement.tex
+            ocimatic problemset
       - run: mkdir pdf
-      - run: mv statement.pdf pdf/statement.pdf
+      - run: mv oneside.pdf pdf/
       - name: Deploy to branch
         uses: s0/git-publish-subdir-action@develop
         env:
