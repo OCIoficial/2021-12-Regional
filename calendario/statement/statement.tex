@@ -41,8 +41,13 @@ cross/.default={1pt}}
   marcándolo como visitado.
   Posteriormente, en cada paso hay que aplicar una regla que indica el siguiente día al que hay
   que moverse el cual debe ser tachado marcándolo como visitado.
-  El juego termina cuando una regla indica que hay que moverse a un día que ya había sido tachado
-  o cuando no es posible aplicar una regla.
+  % El juego termina cuando una regla indica que hay que moverse a un día que ya había sido tachado
+  % o cuando no es posible aplicar una regla.
+  Si una regla indica que hay que moverse a un día $y$ que ya había sido tachado, hay que primero
+  moverse a este día y luego terminar el juego inmediatamente.
+  En este caso consideramos que el juego termina en el día $y$.
+  En algunos casos no será posible aplicar una regla, en cuyo caso el juego termina en el día actual
+  antes de no poder aplicar la regla.
   La regla que hay que aplicar en cada paso depende del día de la semana en que cae el día actual.
   Las reglas para cada día de la semana se detallan a continuación:
   \begin{itemize}
@@ -81,7 +86,7 @@ cross/.default={1pt}}
   La regla del lunes dice que hay que encontrar el siguiente día no tachado el cual es el martes 5.
   La regla para el martes nos pide movernos al reflejo que en este caso corresponde al día $31 - 5 = 26$.
   El día 26 es nuevamente un martes y la regla nos pide movernos al día $31 - 5 = 5$ el cual ya había
-  sido tachado y por lo tanto el juego termina en el día 5.
+  sido tachado y por lo tanto \textbf{el juego termina en el día 5}.
   La siguiente imagen muestra la secuencia de movimientos descritos anteriormente.
 
   \begin{center}
