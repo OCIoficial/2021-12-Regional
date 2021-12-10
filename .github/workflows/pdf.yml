@@ -12,11 +12,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-      - run: pip install git+https://github.com/OCIoficial/ocimatic
+      #- uses: actions/setup-python@v2
+      #- run: pip install git+https://github.com/OCIoficial/ocimatic
       - uses: xu-cheng/texlive-action/full@v1
         with:
           run: |
+            apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
+            python3 -m ensurepip
+            pip3 install --no-cache --upgrade pip setuptools
+            pip install git+https://github.com/OCIoficial/ocimatic
             ocimatic problemset
       - run: mkdir pdf
       - run: mv oneside.pdf pdf/
