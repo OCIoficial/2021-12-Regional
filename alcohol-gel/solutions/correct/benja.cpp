@@ -18,7 +18,7 @@ int main () {
     int start = -1, end;
     for (int i = 0; i < n; i++) {
         current += balance[i];
-        if (start == -1 && current > 0) {
+        if (start == -1 && current >= 0) {
             start = i;
         }
         if (current > 0) {
@@ -29,7 +29,7 @@ int main () {
             best_i = start;
             best_j = end;
         }
-        if (current <= 0) {
+        if (current < 0) {
             start = -1;
             current = 0;
         }

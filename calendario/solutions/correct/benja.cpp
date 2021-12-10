@@ -1,11 +1,12 @@
 #include <iostream>
+#include <string>
 #include <vector>
 
 using namespace std;
 
 class Calendario {
     public:
-        Calendario(int first) : first_(first) {
+        Calendario(int first, bool debug) : first_(first), debug_(debug) {
             week_days_.resize(31);
             used_.resize(31);
             for (int i = 1; i < 31; i++) {
@@ -14,32 +15,44 @@ class Calendario {
             }
         }
 
+        int last_day;
+
         void do_day_action(int day) {
+            used_[day] = true;
             last_day = day;
             // Too lazy to do this right
             if (week_days_[day] == 0) {
+                print_debug("lunes", day);
                 lunes(day);
             }
             else if (week_days_[day] == 1) {
+                print_debug("martes", day);
                 martes(day);
             }
             else if (week_days_[day] == 2) {
+                print_debug("miercoles", day);
                 miercoles(day);
             }
             else if (week_days_[day] == 3) {
+                print_debug("jueves", day);
                 jueves(day);
             }
             else if (week_days_[day] == 4) {
+                print_debug("viernes", day);
                 viernes(day);
             }
             else if (week_days_[day] == 5) {
+                print_debug("sabado", day);
                 sabado(day);
             }
             else if (week_days_[day] == 6) {
+                print_debug("domingo", day);
                 domingo(day);
             }
         }
 
+    private:
+        
         void lunes(int today) {
             int next = today + 1;
             while (next != today) {
@@ -145,18 +158,23 @@ class Calendario {
             last_day = day;
         }
 
-        int last_day;
-
-    private:
         int first_;
+        bool debug_;
         vector<int> week_days_;
         vector<bool> used_;
+
+        void print_debug(string wday, int nday) {
+            if (debug_) {
+                cout << wday << " " << nday << endl;
+            }
+        }
+
 };
 
 int main () {
     int first, day;
     cin >> first >> day;
-    Calendario cal(first);
+    Calendario cal(first, false);
     cal.do_day_action(day);
     cout << cal.last_day << endl; 
 }
