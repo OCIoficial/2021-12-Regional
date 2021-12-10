@@ -11,18 +11,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      #- uses: actions/setup-python@v2
-      #- run: pip install git+https://github.com/OCIoficial/ocimatic
+      # This runs the following commands on an environment with texlive-full.
       - uses: xu-cheng/texlive-action/full@v1
         with:
-          run: |
+          run: | # We install python, git, ocimatic and generate the PDF file.
             apk add --update --no-cache python3 && ln -sf python3 /usr/bin/python
             apk add --update --no-cache git
             python3 -m ensurepip
             pip3 install --no-cache --upgrade pip setuptools
             pip install git+https://github.com/OCIoficial/ocimatic
             ocimatic problemset
+      
+      # Move the generated pdf to a folder and deploy that folder to branch 'pdf'.
       - run: mkdir pdf
       - run: mv oneside.pdf pdf/
       - name: Deploy to branch
