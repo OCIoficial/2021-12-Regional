@@ -33,11 +33,11 @@
   4 ; random_sample_repeated_min.py 3
 
   # Random numbers, choose N from M different values (can repeat even if M > N)
-  5 ; random_choices.py 2 3
-  5 ; random_choices.py 3 6
-  5 ; random_choices.py 3 9
-  5 ; random_choices.py 3 12
-  5 ; random_choices.py 3 15
+  5 ; random_choices.py 2 2
+  5 ; random_choices.py 3 3
+  5 ; random_choices.py 3 2
+  5 ; random_choices.py 3 3
+  5 ; random_choices.py 3 2
 
 
 [Subtask 2 - validators/st2.cpp]
@@ -67,9 +67,9 @@
   4 ; random_sample_repeated_min.py 1000000
 
   # Random numbers, choose N from M different values (can repeat even if M > N)
-  5 ; random_choices.py 800000 1600000
-  5 ; random_choices.py 900000 1800000
-  5 ; random_choices.py 1000000 2000000
+  5 ; random_choices.py 800000 160000
+  5 ; random_choices.py 900000 180000
+  5 ; random_choices.py 1000000 200000
   5 ; random_choices.py 800000 8000
   5 ; random_choices.py 900000 9000
   5 ; random_choices.py 1000000 10000
