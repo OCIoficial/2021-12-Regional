@@ -156,7 +156,6 @@ class Calendario {
 int main () {
     int first, day;
     cin >> first >> day;
-    cout << first << day << endl;
     Calendario cal(first);
     cal.do_day_action(day);
     cout << cal.last_day << endl; 
