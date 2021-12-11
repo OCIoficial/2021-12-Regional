@@ -15,9 +15,9 @@ cross/.default={1pt}}
 \begin{problemDescription}
   Alicia acaba de inventar un juego muy particular.
   Para poder jugarlo solo se necesita un lápiz y el calendario de un mes de 30 días.
-  Los días del mes se numeran de 1 a 30 y dependiendo del mes, el primer día puede caer
-  en distintos días de la semana.
-  Por ejemplo, la siguiente imagen muestra el calendario de un mes donde el primer día cae un viernes.
+  Las fechas de cada mes se numeran de 1 a 30, y el día de la semana correspondiente al inicio del mes 
+  podrá variar según el mes del que se trate. 
+  Por ejemplo, la siguiente imagen muestra el calendario de un mes que comienza un viernes.
   \begin{center}
     \scalebox{0.8}{
       \begin{tikzpicture}
@@ -37,57 +37,54 @@ cross/.default={1pt}}
     }
   \end{center}
 
-  El juego comienza escogiendo un día inicial $x$, el cual debe ser tachado inmediatamente
-  marcándolo como visitado.
-  Posteriormente, en cada paso hay que aplicar una regla que indica el siguiente día al que hay
-  que moverse el cual debe ser tachado marcándolo como visitado.
+  El juego inicia escogiendo una fecha inicial $x$, la que se considera como \emph{visitada} y debe ser tachada de inmediato.
+  Posteriormente, se debe aplicar una regla que indica a qué fecha hay que moverse; es decir, cuál será la siguiente fecha a visitar. 
+  La regla que hay que aplicar en cada paso depende del día de la semana en el que cae la fecha que se está visitando actualmente.
+  El juego termina instantáneamente cuando se visita una fecha $y$ que ya había sido visitada antes.
+  
+  En algunos casos no será posible aplicar la regla correspondiente, por lo que no se podrá seguir visitando nuevas fechas. En esta situación, 
+  consideraremos que el juego terminó en la última fecha visitada satisfactoriamente.
+  
   % El juego termina cuando una regla indica que hay que moverse a un día que ya había sido tachado
   % o cuando no es posible aplicar una regla.
-  Si una regla indica que hay que moverse a un día $y$ que ya había sido tachado, hay que primero
-  moverse a este día y luego terminar el juego inmediatamente.
-  En este caso consideramos que el juego termina en el día $y$.
-  En algunos casos no será posible aplicar una regla, en cuyo caso el juego termina en el día actual
-  antes de no poder aplicar la regla.
-  La regla que hay que aplicar en cada paso depende del día de la semana en que cae el día actual.
+  
   Las reglas para cada día de la semana se detallan a continuación:
   \begin{itemize}
-   \item[\bf Lunes] Avanzar de uno en uno hasta encontrar el primer día no tachado y moverse a este día.
-    Si al avanzar buscando un día sin tachar se llega al final del mes se debe \emph{dar la vuelta} y
-    continuar avanzando desde el inicio del mes.
-    Si no queda ningún día sin tachar la regla no puede aplicarse y el juego termina en el día actual.
+   \item[\bf Lunes] Avanzar de una en una por las fechas del calendario hasta encontrar una que no haya sido tachada, y moverse a dicha fecha.
+    Si al avanzar buscando una fecha sin tachar se llega al final del mes, se debe \emph{dar la vuelta} y continuar avanzando desde el inicio del mes.
+    Si no queda ninguna fecha sin tachar, la regla no puede aplicarse y el juego termina en el día actual.
 
-    \item[\bf Martes] Moverse al día que corresponde al \emph{reflejo} del día actual.
-    Es decir, si el día actual es $i$ moverse al día $31 - i$.
+    \item[\bf Martes] Moverse a la fecha que corresponde al \emph{reflejo} de la fecha actual.
+    Es decir, si la fecha actual es $i$, la siguiente fecha a visitar será la $31 - i$.
 
-    \item[\bf Miércoles] Si el día actual es par, moverse al día anterior.
-    Si el día actual es impar, moverse al día siguiente.
+    \item[\bf Miércoles] Si la fecha actual es par, moverse a la fecha anterior.
+    Si la fecha actual es impar, moverse a la fecha siguiente.
 
-    \item[\bf Jueves] Moverse al día que esta 10 posiciones adelante dando la vuelta en caso de
+    \item[\bf Jueves] Moverse a la fecha que está 10 posiciones adelante, dando la vuelta en caso de
     llegar al final del mes.
 
-    \item[\bf Viernes] Si el día actual $i$ es par, moverse al día $i/2$.
-    En caso contrario, moverse al día $3\times i + 1$.
-    Si $3\times i + 1$ es mayor que 30 restarle 30 al resultado hasta que este sea menor o igual que 30.
+    \item[\bf Viernes] Si la fecha actual $i$ es par, moverse a la fecha $i/2$.
+    En caso contrario, moverse a la fecha $3\times i + 1$.
+    Si $3\times i + 1$ es mayor que 30, se debe restar 30 al resultado hasta que este sea menor o igual que 30.
 
-    \item[\bf Sábado] Si el día actual es $i$ moverse al día $2\times i$.
-    Si $2\times i$ es mayor que 30 restarle 30 al resultado hasta que este sea menor o igual que 30.
+    \item[\bf Sábado] Si la fecha actual es $i$, moverse a la fecha $2\times i$.
+    Si $2\times i$ es mayor que 30, se debe restar 30 al resultado hasta que este sea menor o igual que 30.
 
-    \item[\bf Domingo] Avanzar de dos en dos hasta encontrar un día no tachado y moverse a este día.
+    \item[\bf Domingo] Avanzar de dos en dos por las fechas del calendario hasta encontrar una que no haya sido tachada, y moverse a esta fecha.
     Dar la vuelta al mes en caso de ser necesario.
-    Si no puede avanzarse a ningún día sin tachar la regla no puede aplicarse y el juego termina en el día actual.
+    Si no se puede avanzar a ninguna fecha sin tachar, la regla no puede aplicarse y el juego termina en el día actual.
   \end{itemize}
 
-  Considera el calendario del ejemplo mostrado anteriormente donde el primer día cae un viernes.
-  Si escogemos el día inicial $x=16$ este cae un sábado.
-  La regla para el sábado dice que hay que moverse al día $2\times 16 = 32$, como este es mayor que 30
-  restamos 30 una vez y nos movemos al día 2.
-  El día 2 cae un sábado nuevamente y por lo tanto nos movemos al día $2\times 2=4$.
-  El día 4 cae un lunes.
-  La regla del lunes dice que hay que encontrar el siguiente día no tachado el cual es el martes 5.
-  La regla para el martes nos pide movernos al reflejo que en este caso corresponde al día $31 - 5 = 26$.
-  El día 26 es nuevamente un martes y la regla nos pide movernos al día $31 - 5 = 5$ el cual ya había
-  sido tachado y por lo tanto \textbf{el juego termina en el día 5}.
-  La siguiente imagen muestra la secuencia de movimientos descritos anteriormente.
+  Considera el calendario del ejemplo mostrado anteriormente donde el inicio del mes cae un viernes.
+  Si escogemos como fecha inicial $x=16$, notamos que esta cae un sábado.
+  La regla para el sábado dice que hay que moverse a la fecha $2\times 16 = 32$; como este valor es mayor que 30,
+  restamos 30 una vez y nos movemos a la fecha 2.
+  La fecha 2 cae un sábado nuevamente y por lo tanto la siguiente fecha a visitar es $2\times 2=4$.
+  La fecha 4 cae un lunes. La regla del lunes dice que hay que encontrar la siguiente fecha no tachada, que corresponde al martes 5.
+  La regla para el martes nos pide movernos al reflejo, que en este caso corresponde a la fecha $31 - 5 = 26$.
+  La fecha 26 corresponde nuevamente a un martes y la regla nos pide movernos a la fecha $31 - 5 = 5$, que ya había
+  sido visitada previamente y por lo tanto \textbf{el juego termina el martes 5}.
+  La siguiente imagen muestra la secuencia de movimientos descritos anteriormente:
 
   \begin{center}
     \scalebox{0.8}{
@@ -118,24 +115,24 @@ cross/.default={1pt}}
     }
   \end{center}
 
-  Dado el día de la semana en que cae el primer día del mes y el día inicial $x$ con que comienza
-  el juego tu tarea es determinar el día en que finaliza el juego.
+  Dado el día de la semana en el que inicia el mes y la fecha inicial $x$ con que comienza
+  el juego, tu tarea es ayudar a Alicia a determinar en qué fecha del mes finaliza el juego.
 \end{problemDescription}
 
 \begin{inputDescription}
-  La entrada contiene una línea con dos enteros $d$ ($0 \leq d \leq 6$) y $x$ ($1 \leq x \leq 30$).
-  El entero $d$ corresponde al día de la semana en que cae el primer día del mes.
-  Si $d$ es $0$ el mes comienza un lunes, si $d$ es $1$ el mes comienza un martes y así hasta el domingo.
-  El entero $x$ indica el día del mes en que comienza el juego.
+  La entrada contiene una línea con dos enteros: $d$ ($0 \leq d \leq 6$) y $x$ ($1 \leq x \leq 30$).
+  El entero $d$ corresponde al día de la semana en el que comienza el mes.
+  Si $d$ es $0$, el mes comienza un lunes; si $d$ es $1$, el mes comienza un martes; y así hasta el domingo.
+  El entero $x$ indica la fecha inicial del juego.
 \end{inputDescription}
 
 \begin{outputDescription}
-  La salida debe contener un único entero indicando el día del mes en el que termina el juego.
+  La salida debe contener un único entero indicando la fecha en la que termina el juego.
 \end{outputDescription}
 
 \begin{scoreDescription}
-  Este enunciado no contiene subtareas, se entregará puntaje proporcional a la cantidad de casos
-  de prueba correctos siendo 100 el puntaje máximo.
+  Este problema no contiene subtareas. Se entregará puntaje proporcional a la cantidad de casos
+  de prueba correctos, siendo 100 el puntaje máximo.
   % \subtask{40}
   % Se probarán varios casos donde $d = 0$, es decir, el mes siempre comienza un lunes.
   % \subtask{60}
