@@ -1,3 +1,4 @@
+// @ocimatic should-pass=[st1, st2]
 #include <climits>
 #include <cstdio>
 #include <vector>

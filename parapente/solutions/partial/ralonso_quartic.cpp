@@ -1,3 +1,4 @@
+// @ocimatic should-fail=[st2]
 #include <iostream>
 #include <vector>
 

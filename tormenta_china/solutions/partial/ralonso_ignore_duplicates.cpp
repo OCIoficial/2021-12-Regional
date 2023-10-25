@@ -1,3 +1,4 @@
+// @ocimatic should-pass=[st2]
 #include <iostream>
 
 using namespace std;
